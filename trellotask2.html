@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <style>
+            table{
+                border-collapse:collapse;
+                position: relative;
+                top: 30px;
+            }
+            body{
+                background-color: bisque;
+            }
+            /* tr:nth-child(even){
+                background-color: green;
+            }
+            tr:nth-child(odd){
+                background-color: red;
+            } */
+            button{
+                position: relative;
+                top: 40px;
+                left: 650px;
+                border: 1px solid aquamarine;
+                background-color: aquamarine;
+                padding: 10px;
+                color:blue;
+                border-radius: 5px;
+            }
+            h1{
+                position: relative;
+                top: 20px;
+                left: 570px;
+            }
+            td{
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>fill out this form</h1>
+        <table  border="1" width="100%">
+            <tr>
+                <th colspan="2">basic info</th>
+            </tr>
+            <tr>
+                <td>Enter your Name</td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><input type="radio" name="gen">male<input type="radio" name="gen">female</td>
+             </tr>
+             <tr>
+                 <td>Mobile number</td>
+                 <td><input type="text" id="mobile"></td>
+             </tr>
+             <tr>
+                <td>Email id</td>
+                <td><input type="email" id="email"></td>
+             </tr>   
+             <tr>
+                <th colspan="2">Party info</th>
+            </tr>
+            <tr>
+                <td>event date</td>
+                <td><input type="date" id="date"></td>
+            </tr>
+            <tr>
+                <td>event type</td>
+                <td><select>
+                    <option>please choose</option>
+                    <option id="wed">wedding</option>
+                    <option id="nameing">naming ceremony</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>event location</td>
+                <td><input type="text" id="address"></td>
+            </tr>
+            <tr>
+                <td>expected guest type</td>
+                <td><input type="text" id="guest"></td>
+            </tr>
+            <tr>
+                <td>food type</td>
+                <td><input type="checkbox" id="veg">veg<input type="checkbox" id="nonveg">nonveg</td>
+            </tr>
+            <tr>
+                <td>how did you reach out to us</td>
+                <td><input type="radio" name="gen1">family<input type="radio" name="gen1">friends </td>
+            </tr>
+        </table>
+             <button onclick="validate()">submit</button>
+               
+            <p id="msg"></p>
+            <script>
+                function validate(){
+                    var uname=document.getElementById("name").value;
+                    var male=document.getElementById("gen");
+                    var female=document.getElementById("gen");
+                    var mobile=document.getElementById("mobile").value;
+                    var email=document.getElementById("email").value;
+                    var date=document.getElementById("date");
+                    var wed=document.getElementById("wed");
+                    var naming=document.getElementById("nameing");
+                    var address=document.getElementById("address").value;
+                    var guest=document.getElementById("guest").value;
+                    var veg=document.getElementById("veg");
+                    var nonveg=document.getElementById("nonveg");
+                    var family=document.getElementById("gen1");
+                    var friends=document.getElementById("gen1");
+                    if(wed.selected && veg.checked){
+                        var cost=guest*400;
+                    }
+                    if(wed.selected && nonveg.checked){
+                        var cost=guest*500;
+                    }
+                    if(wed.selected && veg.checked &&  nonveg.checked){
+                        var cost=guest*650;
+                    }
+                    if(naming.selected && veg.checked){
+                        var cost=guest*350;
+                    }
+                    if(naming.selected && nonveg.checked){
+                        var cost=guest*400;
+                    }
+                    if(naming.selected && veg.checked && nonveg.checked){
+                        var cost=guest*500;
+                    }
+                    document.getElementById("msg").innerHTML="hii"+" "+uname+"<br>"+"your bill send to your number  "+mobile+"<br>"+"and to your mail id  "+email+"<br>"+"the delivery will be delivered your address : "+address+"<br>"+"the total payable amount is: "+cost;
+                }
+                </script>   
+    </body>
+</html>
